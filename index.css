@@ -48,6 +48,32 @@ button:hover {
     background-color: var(--color-light-gray);
 }
 
+.button.transparent {
+    position: relative;
+    height: var(--input-height);
+    padding-left: 31px;
+    padding-right: 80px;
+    background-color: transparent;
+    border: var(--border);
+    color: #fff;
+}
+
+.button.transparent::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    border: var(--border);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background: url(./icons/arrow-button.svg) center/70% no-repeat;
+}
+
+.button.transparent:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -130,6 +156,12 @@ a:hover {
     box-shadow: 17px 0 0;
 }
 
+@media (max-width:1919px) {
+    .motivation-card-image {
+        margin-block: -20px;
+    }
+}
+
 @media (max-width:1024px) {
     .header {
         flex-wrap: wrap;
@@ -153,6 +185,20 @@ a:hover {
 
     .banner {
         row-gap: 10px;
+    }
+
+    .motivation-card-image {
+        max-width: 30%;
+        height: auto;
+        margin: 0;
+    }
+
+    .motivation-card {
+        padding-block: 50px;
+    }
+
+    .motivation-card-image-margin {
+        margin-left: 0;
     }
 
 }
@@ -191,6 +237,29 @@ a:hover {
         padding: 0;
         justify-content: start;
     }
+
+    .motivation-card,
+    .motivation-item:nth-child(even) .motivation-card {
+        flex-direction: column-reverse;
+    }
+
+    .motivation-card-image {
+        max-width: 60%;
+    }
+
+    .motivation-card-image-margin {
+        margin-right: 189px;
+    }
+
+    .motivation-card-button2 {
+        margin-bottom: 80px;
+    }
+
+    .motivation-card2,
+    .motivation-item:nth-child(even) .motivation-card2 {
+        flex-direction: column-reverse;
+    }
+
 }
 
 .visually-hidden {
@@ -273,14 +342,6 @@ a:hover {
     border-color: var(--color-light-gray);
 }
 
-.motivation-item:nth-child(even) {
-    background-color: var(--color-dark-alternate);
-}
-
-.motivation-item:nth-child(even) .motivation-card {
-    flex-direction: row-reverse;
-}
-
 .motivation-card {
     display: flex;
     justify-content: start;
@@ -288,10 +349,15 @@ a:hover {
     column-gap: clamp(30px, 10.42vw, 200px);
 }
 
+.motivation-card2 {
+    background-color: var(--color-dark-alternate);
+    width: 100%;
+}
+
 .motivation-card-image-margin {
     margin-top: -59px;
     margin-bottom: -64px;
-    margin-left: 25px;
+    margin-left: 189px;
 }
 
 .motivation-card-image {
@@ -303,7 +369,7 @@ a:hover {
 }
 
 .title-medium {
-    font-size: 40px;
+    font-size: clamp(20px, 2.08vw, 40px);
     font-weight: 700;
     line-height: 52px;
     color: var(--color-light);
@@ -335,4 +401,38 @@ a:hover {
     color: transparent;
     -webkit-text-stroke: 0.5px var(--color-light-gray);
     opacity: 40%;
+}
+
+.motivation-card-description {
+    max-width: 386px;
+    padding-bottom: 25px;
+    padding-top: 10px;
+}
+
+.training-types {
+    position: relative;
+    background-color: var(--color-dark);
+    max-width: 1920px;
+    margin: auto;
+    padding-top: 70px;
+    padding-bottom: 120px;
+}
+
+.training-types-list {
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+
+}
+
+.training-types-item-bodysculpt {
+    height: 140px;
+}
+
+.training-types-item-title {
+    padding-top: 42px;
+}
+
+.training-types-item {
+    height: 140px
 }
